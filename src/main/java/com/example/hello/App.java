@@ -22,7 +22,7 @@ public class App implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(App.class);
 
     @Autowired
-    PersonRepo repo; // This cannot be made public static and the App class cannot be insta.
+    PersonRepo repo;
 
     public static void main(String[] args) {
         SpringApplication.run(App.class);
