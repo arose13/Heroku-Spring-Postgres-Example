@@ -15,6 +15,8 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+mainClassName = 'hello.App'
+
 jar {
     baseName = 'database-from'
     version = '0.1'
@@ -28,18 +30,12 @@ repositories {
 }
 
 dependencies {
-    //testCompile group: 'junit', name: 'junit', version: '4.11'
     // Testing Framework
-    compile 'junit:junit'
+    testCompile 'junit:junit'
 
     // Spring
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-data-rest'
-    /* Transaction imports
-    compile 'org.springframework.boot:spring-boot-starter'
-    compile 'org.springframework:spring-tx'
-    compile 'org.springframework:spring-jdbc'
-    */
 
     // Database H2
     compile 'com.h2database:h2'
@@ -48,41 +44,16 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = '2.6'
 }
-/*
-buildscript {
-    repositories {
-        mavenCentral()
+
+task stage(type: Copy, dependsOn: [clean, build]) {
+    from jar.archivePath
+    into project.rootDir
+    rename {
+        'app.jar'
     }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE")
-    }
 }
+stage.mustRunAfter(clean)
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
-
-jar {
-    baseName = 'gs-accessing-data-jpa'
-    version =  '0.1.0'
+clean << {
+    project.file('app.jar').delete()
 }
-
-repositories {
-    mavenCentral()
-    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
-}
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-dependencies {
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("com.h2database:h2")
-    testCompile("junit:junit")
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
-}
-  */
