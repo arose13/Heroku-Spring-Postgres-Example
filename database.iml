@@ -86,5 +86,6 @@
     <orderEntry type="library" name="Gradle: com.github.fge:msg-simple:1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:guava:16.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.github.fge:btf:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-dbcp2:2.1.1" level="project" />
   </component>
 </module>

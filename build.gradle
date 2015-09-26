@@ -15,7 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
-mainClassName = 'hello.App'
+mainClassName = 'com.example.hello.App'
 
 jar {
     baseName = 'database-from'
@@ -36,9 +36,14 @@ dependencies {
     // Spring
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.apache.commons:commons-dbcp2:2.1.1'
 
     // Database H2
     compile 'com.h2database:h2'
+
+    // PostGreSQL
+    compile 'org.postgresql:postgresql:9.4-1203-jdbc42'
+
 }
 
 task wrapper(type: Wrapper) {
