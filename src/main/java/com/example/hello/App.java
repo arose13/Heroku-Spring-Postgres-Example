@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.sql.DataSource;
 import java.util.ArrayList;
 
 /**
@@ -46,6 +47,9 @@ import java.util.ArrayList;
 public class App implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);
+
+    @Autowired(required = false)
+    DataSource dataSource;
 
     @Autowired
     PersonRepo repo;
