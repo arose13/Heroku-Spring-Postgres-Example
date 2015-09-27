@@ -43,9 +43,9 @@ import java.util.ArrayList;
 @ComponentScan
 @EnableAutoConfiguration
 @EnableJpaRepositories
-public class App /*implements CommandLineRunner*/ {
+public class App implements CommandLineRunner {
 
-    //private static final Logger log = LoggerFactory.getLogger(App.class);
+    private static final Logger log = LoggerFactory.getLogger(App.class);
 
     @Autowired
     PersonRepo repo;
@@ -54,7 +54,6 @@ public class App /*implements CommandLineRunner*/ {
         SpringApplication.run(App.class, args);
     }
 
-    /*
     @Override
     public void run(String... args) throws Exception {
         // save a couple of persons
@@ -85,7 +84,6 @@ public class App /*implements CommandLineRunner*/ {
             log.info(bauer.toString());
         }
     }
-    */
 
     @RequestMapping("/test")
     public Person testJSON() {
