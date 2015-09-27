@@ -1,3 +1,5 @@
+def javaVersionLang = 1.8
+
 buildscript {
     repositories {
         mavenCentral()
@@ -19,8 +21,8 @@ jar {
     version = '0.1'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = javaVersionLang
+targetCompatibility = javaVersionLang
 
 repositories {
     mavenCentral()
