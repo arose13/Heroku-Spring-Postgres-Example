@@ -38,11 +38,13 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-rest'
     compile 'org.apache.commons:commons-dbcp2:2.1.1'
 
-    // Database H2
-    compile 'com.h2database:h2'
+    //Spring Cloud Connector
+    compile 'org.springframework.cloud:spring-cloud-spring-service-connector:1.2.0.RELEASE'
+    compile 'org.springframework.cloud:spring-cloud-heroku-connector:1.2.0.RELEASE'
 
-    // PostGreSQL
+    // Database Drivers
     compile 'org.postgresql:postgresql:9.4-1203-jdbc42'
+    compile 'com.h2database:h2'
 
 }
 

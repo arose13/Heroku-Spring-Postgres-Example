@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface PersonRepo extends CrudRepository<Person, Long> {
 
-    List<Person> findByName(String name);
+    List<Person> findByNameIgnoreCase(String name);
 
 }
