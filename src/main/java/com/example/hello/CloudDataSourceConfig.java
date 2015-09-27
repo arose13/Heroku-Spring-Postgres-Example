@@ -1,6 +1,7 @@
 package com.example.hello;
 
 import org.springframework.cloud.config.java.AbstractCloudConfig;
+import org.springframework.cloud.config.java.ServiceScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -17,8 +18,9 @@ import javax.sql.DataSource;
  * And as always, Don't forget to flick the bean
  */
 
-@Profile("cloud")
 @Configuration
+@ServiceScan
+@Profile("cloud")
 public class CloudDataSourceConfig extends AbstractCloudConfig {
 
     @Bean
