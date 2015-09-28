@@ -88,5 +88,6 @@
     <orderEntry type="library" name="Gradle: com.github.fge:btf:1.2" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-dbcp2:2.1.1" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-spring-service-connector:1.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-core:1.2.0.RELEASE" level="project" />
   </component>
 </module>
