@@ -3,14 +3,14 @@ package com.example.hello;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PERSON")
+@Table(name = "person")
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
     protected Person() {}
