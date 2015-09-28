@@ -52,6 +52,7 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.6'
 }
 
+/* STAGING IS ONLY IF YOU WANT TO USE GRADLE AS YOUR HEROKU APPLICATION
 task stage(type: Copy, dependsOn: [clean, build]) {
     from jar.archivePath
     into project.rootDir
@@ -63,7 +64,7 @@ stage.mustRunAfter(clean)
 
 clean << {
     project.file('app.jar').delete()
-}
+}*/
 
 // Fuck this! I'm going to make Gradle generate a pom.xml for me!
 task generatePom << {
