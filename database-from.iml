@@ -21,7 +21,6 @@
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-spring-service-connector:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-heroku-connector:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.postgresql:postgresql:9.4-1203-jdbc42" level="project" />
-    <orderEntry type="library" name="Gradle: com.h2database:h2:1.4.188" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter:1.2.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-tomcat:1.2.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.4.6" level="project" />
@@ -93,5 +92,6 @@
     <orderEntry type="library" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.h2database:h2:1.4.189" level="project" />
   </component>
 </module>
