@@ -6,6 +6,10 @@
   <artifactId>database-from</artifactId>
   <version>0.1</version>
   <inceptionYear>2015</inceptionYear>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>org.apache.commons</groupId>
