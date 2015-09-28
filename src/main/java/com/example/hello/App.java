@@ -39,9 +39,12 @@ import java.util.ArrayList;
  * $ git push heroku master
  *
  */
+@SpringBootApplication
+@Component
 @RestController
 @ComponentScan
 @EnableAutoConfiguration
+@EnableJpaRepositories
 public class App implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);
