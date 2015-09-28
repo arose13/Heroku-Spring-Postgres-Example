@@ -1,3 +1,5 @@
+group 'database-from'
+version '0.1'
 def javaVersionLang = 1.8
 
 buildscript {
@@ -64,16 +66,4 @@ stage.mustRunAfter(clean)
 
 clean << {
     project.file('app.jar').delete()
-}
-
-// Fuck this! I'm going to make Gradle generate a pom.xml for me!
-task generatePom << {
-    pom {
-        project {
-            groupId = 'com.example'
-            artifactId = 'database-from'
-            version = '0.1'
-            inceptionYear = '2015'
-        }
-    }.writeTo("pom.xml")
 }
