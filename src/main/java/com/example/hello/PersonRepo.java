@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * This is the Database interface. Spring will actually read what method to and parse it to generate the SQL statement
  */
+@Repository
 public interface PersonRepo extends CrudRepository<Person, Long> {
 
     List<Person> findByNameIgnoreCase(String name);
