@@ -44,8 +44,7 @@ import java.util.ArrayList;
 @RestController
 @ComponentScan
 @EnableAutoConfiguration
-@EnableJpaRepositories
-public class App /*implements CommandLineRunner*/ {
+public class App {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);
 
@@ -58,39 +57,6 @@ public class App /*implements CommandLineRunner*/ {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
-
-    /*
-    @Override
-    public void run(String... args) throws Exception {
-        // save a couple of persons
-        repo.save(new Person("Anthony"));
-        repo.save(new Person("Karissa"));
-        repo.save(new Person("Toni"));
-        repo.save(new Person("Richelle"));
-        repo.save(new Person("Dom"));
-
-        // fetch all persons
-        log.info("Persons found with findAll():");
-        log.info("-------------------------------");
-        for (Person person : repo.findAll()) {
-            log.info(person.toString());
-        }
-        System.out.println();
-
-        // fetch an individual person by ID
-        Person person = repo.findOne(1L);
-        log.info("Person found with findOne(1L):");
-        log.info("--------------------------------");
-        log.info(person.toString());
-
-        // fetch persons by last name
-        log.info("Person found with findByLastName('Karissa'):");
-        log.info("--------------------------------------------");
-        for (Person bauer : repo.findByNameIgnoreCase("Karissa")) {
-            log.info(bauer.toString());
-        }
-    }
-    */
 
     @RequestMapping("/test")
     public Person testJSON() {
