@@ -38,8 +38,8 @@ public class CloudDataSourceConfig extends AbstractCloudConfig {
 
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setUrl(dbUrl);
-        //basicDataSource.setUsername(username);
-        //basicDataSource.setPassword(password);
+        basicDataSource.setUsername(username);
+        basicDataSource.setPassword(password);
 
         return basicDataSource;
     }
