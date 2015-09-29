@@ -27,7 +27,6 @@ import java.util.ArrayList;
  *
  * IMPORTANT: Set the environment variables
  * $ heroku config:set SPRING_CLOUD_APP_NAME={Heroku Given App Name}
- * $ heroku config:set SPRING_PROFILES_ACTIVE={Your Profile Name you Decided On For This Project eg: 'cloud'}
  *
  * Create a Postgres DB if you don't already have one
  * $ heroku addons:add heroku-postgresql:hobby-dev
