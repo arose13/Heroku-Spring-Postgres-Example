@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.app.ApplicationInstanceInfo;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +43,7 @@ import java.util.ArrayList;
 @RestController
 @ComponentScan
 @EnableAutoConfiguration
+@EnableJpaRepositories
 public class App {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);

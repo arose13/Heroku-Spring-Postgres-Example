@@ -29,7 +29,6 @@ import java.net.URISyntaxException;
 @Profile("cloud")
 public class CloudDataSourceConfig extends AbstractCloudConfig {
 
-    @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
