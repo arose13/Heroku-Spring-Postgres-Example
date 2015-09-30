@@ -46,10 +46,10 @@ public class App {
     private static final Logger log = LoggerFactory.getLogger(App.class);
 
     @Autowired(required = false)
-    DataSource dataSource;
+    public DataSource dataSource;
 
     @Autowired
-    ApplicationInstanceInfo instanceInfo;
+    public ApplicationInstanceInfo instanceInfo;
 
     @Autowired
     PersonRepo repo;
