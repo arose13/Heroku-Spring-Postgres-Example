@@ -29,11 +29,10 @@ import java.net.URISyntaxException;
 @Profile("cloud")
 public class CloudDataSourceConfig extends AbstractCloudConfig {
 
-    /*@Bean
+    @Bean
     public ApplicationInstanceInfo applicationInfo() {
         return cloud().getApplicationInstanceInfo();
     }
-    */
 
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
