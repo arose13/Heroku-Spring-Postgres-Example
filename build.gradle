@@ -46,7 +46,7 @@ dependencies {
 
     // Database Drivers
     compile 'org.postgresql:postgresql:9.4-1203-jdbc42'
-    //compile 'com.h2database:h2:1.4.189'
+    compile 'com.h2database:h2:1.4.189'
 
 }
 
