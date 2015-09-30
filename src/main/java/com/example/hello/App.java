@@ -1,5 +1,6 @@
 package com.example.hello;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.sql.DataSource;
 import java.util.ArrayList;
 
 /**
@@ -46,7 +46,7 @@ public class App {
     private static final Logger log = LoggerFactory.getLogger(App.class);
 
     @Autowired(required = false)
-    public DataSource dataSource;
+    public BasicDataSource dataSource;
 
     @Autowired
     public ApplicationInstanceInfo instanceInfo;

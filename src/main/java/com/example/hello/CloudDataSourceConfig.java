@@ -1,6 +1,7 @@
 package com.example.hello;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.app.ApplicationInstanceInfo;
@@ -28,12 +29,12 @@ import java.net.URISyntaxException;
 @Profile("cloud")
 public class CloudDataSourceConfig extends AbstractCloudConfig {
 
-    @Bean
+    /*@Bean
     public ApplicationInstanceInfo applicationInfo() {
         return cloud().getApplicationInstanceInfo();
     }
+    */
 
-    /*
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
@@ -43,13 +44,11 @@ public class CloudDataSourceConfig extends AbstractCloudConfig {
         String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
 
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName("org.postgresql.Driver");
         basicDataSource.setUrl(dbUrl);
         basicDataSource.setUsername(username);
         basicDataSource.setPassword(password);
 
         return basicDataSource;
     }
-    */
 
 }
