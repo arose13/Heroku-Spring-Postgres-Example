@@ -28,7 +28,7 @@ import java.net.URISyntaxException;
 public class CloudDataSourceConfig extends AbstractCloudConfig {
 
     @Autowired(required = false)
-    @Qualifier("DATABASE_URL")
+    @Qualifier("database")
     BasicDataSource dataSource;
 
     /*
