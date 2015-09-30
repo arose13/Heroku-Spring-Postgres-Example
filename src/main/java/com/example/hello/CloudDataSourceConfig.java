@@ -1,6 +1,8 @@
 package com.example.hello;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.cloud.config.java.ServiceScan;
 import org.springframework.context.annotation.Bean;
@@ -25,9 +27,11 @@ import java.net.URISyntaxException;
 @Profile("cloud")
 public class CloudDataSourceConfig extends AbstractCloudConfig {
 
-    /*@Autowired(required = false)
-    BasicDataSource dataSource;*/
+    @Autowired(required = false)
+    @Qualifier("DATABASE_URL")
+    BasicDataSource dataSource;
 
+    /*
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
@@ -42,6 +46,6 @@ public class CloudDataSourceConfig extends AbstractCloudConfig {
         basicDataSource.setPassword(password);
 
         return basicDataSource;
-    }
+    }*/
 
 }
