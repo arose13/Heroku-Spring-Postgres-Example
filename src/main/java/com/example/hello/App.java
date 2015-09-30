@@ -46,14 +46,8 @@ public class App {
 
     private static final Logger log = LoggerFactory.getLogger(App.class);
 
-    /*@Autowired(required = false)
-    BasicDataSource dataSource;*/
-
     @Autowired(required = false)
-    DataSource dataSource;
-
-    @Autowired(required = false)
-    ApplicationInstanceInfo instanceInfo;
+    BasicDataSource dataSource;
 
     @Autowired
     PersonRepo repo;
