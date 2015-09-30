@@ -43,13 +43,8 @@ import java.util.ArrayList;
 @EnableAutoConfiguration
 public class App {
 
-    private static final Logger log = LoggerFactory.getLogger(App.class);
-
     @Autowired(required = false)
     public BasicDataSource dataSource;
-
-    @Autowired
-    public ApplicationInstanceInfo instanceInfo;
 
     @Autowired
     PersonRepo repo;
