@@ -52,7 +52,7 @@ public class App {
     @Autowired(required = false)
     DataSource dataSource;
 
-    @Autowired
+    @Autowired(required = false)
     ApplicationInstanceInfo instanceInfo;
 
     @Autowired
