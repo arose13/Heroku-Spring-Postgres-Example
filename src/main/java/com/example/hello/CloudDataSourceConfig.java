@@ -81,7 +81,11 @@ public class CloudDataSourceConfig {
     final Properties hibernateProperties() {
         final Properties hibernateProperties = new Properties();
 
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
+        /*
+        http://stackoverflow.com/questions/438146/hibernate-hbm2ddl-auto-possible-values-and-what-they-do
+        Stackoverflow description of what each hibernate.hbm2ddl.auto param does
+         */
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         hibernateProperties.setProperty("hibernate.show_sql", "true");
 
