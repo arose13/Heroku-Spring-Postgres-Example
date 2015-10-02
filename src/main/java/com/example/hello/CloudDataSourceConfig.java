@@ -1,11 +1,6 @@
 package com.example.hello;
 
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.apache.tomcat.jdbc.pool.DataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.cloud.app.ApplicationInstanceInfo;
-import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.cloud.config.java.ServiceScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +8,7 @@ import org.springframework.context.annotation.Profile;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Properties;
 
 /**
  * Created by Anthony on 9/26/2015.
@@ -27,7 +23,7 @@ import java.net.URISyntaxException;
 @Configuration
 @ServiceScan
 @Profile("cloud")
-public class CloudDataSourceConfig extends AbstractCloudConfig {
+public class CloudDataSourceConfig {
 
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
@@ -43,6 +39,14 @@ public class CloudDataSourceConfig extends AbstractCloudConfig {
         basicDataSource.setPassword(password);
 
         return basicDataSource;
+    }
+
+    @Bean
+    Properties additionalProperties() {
+        Properties properties = new Properties();
+        properties.setProperty("hibernate.hbm2ddl.auto","create" );
+        //properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        return properties;
     }
 
 }
