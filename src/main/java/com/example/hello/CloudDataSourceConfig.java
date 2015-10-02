@@ -1,10 +1,17 @@
 package com.example.hello;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.config.java.ServiceScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -22,6 +29,8 @@ import java.util.Properties;
 
 @Configuration
 @ServiceScan
+@ComponentScan
+@EnableTransactionManagement
 @Profile("cloud")
 public class CloudDataSourceConfig {
 
@@ -37,16 +46,43 @@ public class CloudDataSourceConfig {
         basicDataSource.setUrl(dbUrl);
         basicDataSource.setUsername(username);
         basicDataSource.setPassword(password);
+        basicDataSource.setDriverClassName("org.postgresql.Driver");
 
         return basicDataSource;
     }
 
     @Bean
-    Properties additionalProperties() {
-        Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto","create" );
-        //properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-        return properties;
+    public LocalSessionFactoryBean sessionFactory() throws URISyntaxException {
+        final LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setPackagesToScan("com.example.hello"); // NOTE this may not be needed
+        sessionFactory.setHibernateProperties(hibernateProperties());
+
+        return sessionFactory;
+    }
+
+    @Bean
+    @Autowired
+    public HibernateTransactionManager transactionManager(final SessionFactory sessionFactory) {
+        final HibernateTransactionManager txManager = new HibernateTransactionManager();
+        txManager.setSessionFactory(sessionFactory);
+
+        return txManager;
+    }
+
+    @Bean
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+        return new PersistenceExceptionTranslationPostProcessor();
+    }
+
+    final Properties hibernateProperties() {
+        final Properties hibernateProperties = new Properties();
+
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
+        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        hibernateProperties.setProperty("hibernate.show_sql", "true");
+
+        return hibernateProperties;
     }
 
 }
