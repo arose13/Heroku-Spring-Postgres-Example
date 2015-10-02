@@ -43,8 +43,10 @@ import java.util.ArrayList;
 @EnableAutoConfiguration
 public class App {
 
+    /*
     @Autowired(required = false)
     public BasicDataSource dataSource;
+    */
 
     @Autowired
     PersonRepo repo;
