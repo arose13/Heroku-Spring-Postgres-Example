@@ -34,6 +34,9 @@ import java.util.Properties;
 @Profile("cloud")
 public class CloudDataSourceConfig {
 
+    @Autowired(required = false)
+    public BasicDataSource dataSource;
+
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
