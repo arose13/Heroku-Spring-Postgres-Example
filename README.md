@@ -19,5 +19,5 @@ $ heroku config:set SPRING_PROFILES_ACTIVE=cloud
 ```
 
 # Goal
-Get a Postgres DB to work for this project.
+Get a pure Java (XML free) Postgres DB project to work on Heroku.
 PS: to run projects on Heroku you'll need a 'Procfile' 
