@@ -33,6 +33,8 @@ import java.util.Properties;
 @EnableTransactionManagement
 @Profile("cloud")
 public class CloudDataSourceConfig {
+    
+    private static final String packagesToScanPath = "com.example.hello";
 
     @Autowired(required = false)
     public BasicDataSource dataSource;
@@ -58,7 +60,7 @@ public class CloudDataSourceConfig {
     public LocalSessionFactoryBean sessionFactory() throws URISyntaxException {
         final LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("com.example.hello"); // NOTE this may not be needed
+        sessionFactory.setPackagesToScan(packagesToScanPath); // NOTE this may not be needed
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;
